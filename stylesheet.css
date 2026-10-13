@@ -1,16 +1,14 @@
-/* =========================================
-   Design Tokens
-   ========================================= */
+
 :root {
     --bg: #b9e8ff;
     --surface: #ffffff;
     --text: #14161a;
-    --muted: #4a5568;
-    --heading: #c2006c;
-    --primary: #c2006c;
-    --primary-hover: #8f0050;
+    --muted: #3d4757;
+    --heading: #8f0050;        
+    --primary: #8f0050;
+    --primary-hover: #6b003c;
     --primary-contrast: #ffffff;
-    --border: #c2006c;
+    --border: #8f0050;
     --focus: #003366;
     --soft: #ffe3f2;
     --radius: 10px;
@@ -26,49 +24,16 @@
         --bg: #0f1620;
         --surface: #1b2430;
         --text: #e8eef5;
-        --muted: #a8b4c2;
-        --heading: #ff8fc7;
-        --primary: #ff8fc7;
-        --primary-hover: #ffb3d8;
+        --muted: #b8c4d2;
+        --heading: #ffa8d4;
+        --primary: #ffa8d4;
+        --primary-hover: #ffc2e0;
         --primary-contrast: #14161a;
-        --border: #ff8fc7;
+        --border: #ffa8d4;
         --focus: #ffd166;
         --soft: #2a3646;
         --shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
     }
-}
-
-/* =========================================
-   Manual Dark Mode (via JS toggle)
-   ========================================= */
-html.dark {
-    --bg: #0f1620;
-    --surface: #1b2430;
-    --text: #e8eef5;
-    --muted: #a8b4c2;
-    --heading: #ff8fc7;
-    --primary: #ff8fc7;
-    --primary-hover: #ffb3d8;
-    --primary-contrast: #14161a;
-    --border: #ff8fc7;
-    --focus: #ffd166;
-    --soft: #2a3646;
-    --shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-}
-
-html.light {
-    --bg: #b9e8ff;
-    --surface: #ffffff;
-    --text: #14161a;
-    --muted: #4a5568;
-    --heading: #c2006c;
-    --primary: #c2006c;
-    --primary-hover: #8f0050;
-    --primary-contrast: #ffffff;
-    --border: #c2006c;
-    --focus: #003366;
-    --soft: #ffe3f2;
-    --shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 /* =========================================
@@ -100,8 +65,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
-.btn:focus-visible,
-.theme-toggle:focus-visible {
+.btn:focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 2px;
 }
@@ -126,7 +90,6 @@ textarea:focus-visible,
    Header + Nav
    ========================================= */
 header {
-    position: relative;
     text-align: center;
     margin-bottom: 1.5rem;
     padding-top: 0.5rem;
@@ -154,35 +117,6 @@ nav a[aria-current="page"] {
     background-color: var(--primary);
     color: var(--primary-contrast);
     text-decoration: none;
-}
-
-/* =========================================
-   Theme Toggle Button
-   ========================================= */
-.theme-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--primary);
-    color: var(--primary-contrast);
-    border: none;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    box-shadow: var(--shadow);
-    transition: background 0.2s ease, transform 0.2s ease;
-    line-height: 1;
-}
-
-.theme-toggle:hover {
-    background-color: var(--primary-hover);
-    transform: scale(1.08);
 }
 
 /* =========================================
@@ -364,18 +298,12 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .alert-error   { border-color: #b30000; background-color: #ffe6e6; color: #660000; }
 .alert strong { font-weight: bold; }
 
-/* Dark-mode alerts (manual) */
-html.dark .alert-info    { background-color: #12294a; color: #cfe3ff; border-color: #6aa8ff; }
-html.dark .alert-success { background-color: #123a22; color: #c8f0d4; border-color: #4dd47f; }
-html.dark .alert-warning { background-color: #3d2600; color: #ffe0b3; border-color: #ffb347; }
-html.dark .alert-error   { background-color: #3d0f0f; color: #ffc9c9; border-color: #ff6b6b; }
-
-/* Dark-mode alerts (auto, only if user hasn't forced light) */
+/* Dark-mode alerts (auto) */
 @media (prefers-color-scheme: dark) {
-    html:not(.light) .alert-info    { background-color: #12294a; color: #cfe3ff; border-color: #6aa8ff; }
-    html:not(.light) .alert-success { background-color: #123a22; color: #c8f0d4; border-color: #4dd47f; }
-    html:not(.light) .alert-warning { background-color: #3d2600; color: #ffe0b3; border-color: #ffb347; }
-    html:not(.light) .alert-error   { background-color: #3d0f0f; color: #ffc9c9; border-color: #ff6b6b; }
+    .alert-info    { background-color: #12294a; color: #cfe3ff; border-color: #6aa8ff; }
+    .alert-success { background-color: #123a22; color: #c8f0d4; border-color: #4dd47f; }
+    .alert-warning { background-color: #3d2600; color: #ffe0b3; border-color: #ffb347; }
+    .alert-error   { background-color: #3d0f0f; color: #ffc9c9; border-color: #ff6b6b; }
 }
 
 /* =========================================
