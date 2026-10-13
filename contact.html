@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Day - Contact Us</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <h1>Plan Your Day</h1>
+
+        <nav aria-label="Main">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" aria-current="page">Contact Us</a>
+            <a href="components.html">Components</a>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <h2>Contact Us</h2>
+
+        <div class="alert alert-info" role="status">
+            Need ideas first? <a href="#tips-modal">Read quick study tips</a>.
+        </div>
+
+        <p>
+            Tell us about your study plan and daily schedule.
+        </p>
+
+        <form action="#" method="post">
+
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+                <label for="hours">Study hours</label>
+                <input type="number" id="hours" name="hours" min="1" max="24">
+            </div>
+
+            <div class="field">
+                <label for="date">Study date</label>
+                <input type="date" id="date" name="date">
+            </div>
+
+            <fieldset>
+                <legend>What is your study level?</legend>
+                <div class="choice"><input type="radio" id="beginner" name="level" value="beginner"><label for="beginner">Beginner</label></div>
+                <div class="choice"><input type="radio" id="intermediate" name="level" value="intermediate"><label for="intermediate">Intermediate</label></div>
+                <div class="choice"><input type="radio" id="advanced" name="level" value="advanced"><label for="advanced">Advanced</label></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Which subjects do you study?</legend>
+                <div class="choice"><input type="checkbox" id="math" name="subject" value="math"><label for="math">Math</label></div>
+                <div class="choice"><input type="checkbox" id="physics" name="subject" value="physics"><label for="physics">Physics</label></div>
+                <div class="choice"><input type="checkbox" id="computer" name="subject" value="computer"><label for="computer">Computer Science</label></div>
+            </fieldset>
+
+            <div class="field">
+                <label for="time">Preferred study time</label>
+                <select id="time" name="time">
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                    <option value="night">Night</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="message">Your goals or notes</label>
+                <textarea id="message" name="message" rows="6"></textarea>
+            </div>
+
+            <button type="submit">Send study plan</button>
+            <a class="btn btn-secondary" href="#tips-modal">Study tips</a>
+
+        </form>
+
+    </main>
+
+    <div id="tips-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="tips-title">
+        <a class="modal-backdrop" href="#main" aria-label="Close dialog" tabindex="-1"></a>
+        <div class="modal-box">
+            <h2 id="tips-title">Quick study tips</h2>
+            <p>Pick your most important task first, study in short blocks, and take regular breaks.</p>
+            <a class="btn" href="#main">Close</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Plan Your Day</p>
+    </footer>
+
+</body>
+
+</html>
