@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact us and share your study plan.">
     <title>Plan Your Day - Contact Us</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header>
+    <input type="checkbox" id="theme-switch" class="theme-switch"
+           aria-label="Toggle dark mode">
+
+    <header role="banner">
         <h1>Plan Your Day</h1>
 
-        <nav aria-label="Main">
+        <label for="theme-switch" class="theme-toggle"
+               role="switch" aria-hidden="true"></label>
+
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html" aria-current="page">Contact Us</a>
@@ -23,56 +29,61 @@
         </nav>
     </header>
 
-    <main id="main">
+    <main id="main" role="main">
 
         <h2>Contact Us</h2>
+        <p>Tell us about your study plan and daily schedule.</p>
 
-        <div class="alert alert-info" role="status">
-            Need ideas first? <a href="#tips-modal">Read quick study tips</a>.
+        <div class="alert alert-success" role="status">
+            <strong>Success:</strong>&nbsp;Your preferences will be saved.
         </div>
-
-        <p>
-            Tell us about your study plan and daily schedule.
-        </p>
 
         <form action="#" method="post">
 
-            <div class="field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" autocomplete="name" required>
-            </div>
+            <fieldset>
+                <legend>Your Information</legend>
 
-            <div class="field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required autocomplete="name">
+                </div>
 
-            <div class="field">
-                <label for="hours">Study hours</label>
-                <input type="number" id="hours" name="hours" min="1" max="24">
-            </div>
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
 
-            <div class="field">
-                <label for="date">Study date</label>
-                <input type="date" id="date" name="date">
-            </div>
+                <div class="field">
+                    <label for="hours">Study Hours:</label>
+                    <input type="number" id="hours" name="hours" min="1" max="24">
+                </div>
+
+                <div class="field">
+                    <label for="date">Study Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+            </fieldset>
 
             <fieldset>
                 <legend>What is your study level?</legend>
-                <div class="choice"><input type="radio" id="beginner" name="level" value="beginner"><label for="beginner">Beginner</label></div>
-                <div class="choice"><input type="radio" id="intermediate" name="level" value="intermediate"><label for="intermediate">Intermediate</label></div>
-                <div class="choice"><input type="radio" id="advanced" name="level" value="advanced"><label for="advanced">Advanced</label></div>
+                <div class="radio-group">
+                    <label><input type="radio" name="level" value="beginner"> Beginner</label>
+                    <label><input type="radio" name="level" value="intermediate"> Intermediate</label>
+                    <label><input type="radio" name="level" value="advanced"> Advanced</label>
+                </div>
             </fieldset>
 
             <fieldset>
                 <legend>Which subjects do you study?</legend>
-                <div class="choice"><input type="checkbox" id="math" name="subject" value="math"><label for="math">Math</label></div>
-                <div class="choice"><input type="checkbox" id="physics" name="subject" value="physics"><label for="physics">Physics</label></div>
-                <div class="choice"><input type="checkbox" id="computer" name="subject" value="computer"><label for="computer">Computer Science</label></div>
+                <div class="check-group">
+                    <label><input type="checkbox" name="subject" value="math"> Math</label>
+                    <label><input type="checkbox" name="subject" value="physics"> Physics</label>
+                    <label><input type="checkbox" name="subject" value="computer"> Computer Science</label>
+                </div>
             </fieldset>
 
             <div class="field">
-                <label for="time">Preferred study time</label>
+                <label for="time">Preferred Study Time:</label>
                 <select id="time" name="time">
                     <option value="morning">Morning</option>
                     <option value="afternoon">Afternoon</option>
@@ -82,30 +93,19 @@
             </div>
 
             <div class="field">
-                <label for="message">Your goals or notes</label>
+                <label for="message">Your Goals or Notes:</label>
                 <textarea id="message" name="message" rows="6"></textarea>
             </div>
 
-            <button type="submit">Send study plan</button>
-            <a class="btn btn-secondary" href="#tips-modal">Study tips</a>
+            <button type="submit" class="btn">Submit</button>
 
         </form>
 
     </main>
 
-    <div id="tips-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="tips-title">
-        <a class="modal-backdrop" href="#main" aria-label="Close dialog" tabindex="-1"></a>
-        <div class="modal-box">
-            <h2 id="tips-title">Quick study tips</h2>
-            <p>Pick your most important task first, study in short blocks, and take regular breaks.</p>
-            <a class="btn" href="#main">Close</a>
-        </div>
-    </div>
-
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2026 Plan Your Day</p>
     </footer>
 
 </body>
-
 </html>
