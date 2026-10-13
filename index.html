@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plan Your Day - organize your time, study better, and complete your tasks.">
+    <meta name="theme-color" content="#8f0050">
     <title>Plan Your Day - Home</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -12,11 +13,8 @@
 
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header role="banner">
+    <header>
         <h1>Plan Your Day</h1>
-
-        <button id="theme-toggle" class="theme-toggle" type="button"
-                aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
 
         <nav aria-label="Main navigation">
             <a href="index.html" aria-current="page">Home</a>
@@ -26,7 +24,7 @@
         </nav>
     </header>
 
-    <main id="main" role="main">
+    <main id="main">
 
         <section aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">Welcome to Plan Your Day</h2>
@@ -65,57 +63,22 @@
             <a href="#modal" class="btn">Open Daily Reminder</a>
         </p>
 
-        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-            <a href="#" class="modal-backdrop" aria-hidden="true" tabindex="-1"></a>
+        <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title">
+            <a href="#main" class="modal-backdrop" aria-label="Close modal" tabindex="-1"></a>
             <div class="modal-content">
                 <h2 id="modal-title">Daily Reminder</h2>
                 <p>Don't forget to review your plan at the end of the day!</p>
                 <div class="modal-actions">
-                    <a href="#" class="btn" aria-label="Close modal">Close</a>
+                    <a href="#main" class="btn" aria-label="Close modal">Close</a>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer role="contentinfo">
+    <footer>
         <p>&copy; 2026 Plan Your Day</p>
     </footer>
-
-    <script>
-    (function () {
-        var html = document.documentElement;
-        var btn = document.getElementById('theme-toggle');
-        var saved = localStorage.getItem('theme');
-        if (saved === 'dark') html.classList.add('dark');
-        else if (saved === 'light') html.classList.add('light');
-
-        function updateIcon() {
-            var isDark = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            btn.textContent = isDark ? '☀️' : '🌙';
-        }
-
-        btn.addEventListener('click', function () {
-            var isDarkNow = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (isDarkNow) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateIcon();
-        });
-
-        updateIcon();
-    })();
-    </script>
 
 </body>
 </html>
