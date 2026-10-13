@@ -37,32 +37,53 @@
 
         <form action="#" method="post">
 
+            <!-- ==============================
+                 1. TEXT INPUT
+                 ============================== -->
             <fieldset>
-                <legend>Your Information</legend>
+                <legend>Personal Information</legend>
 
                 <div class="field">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required autocomplete="name">
+                    <label for="name">Name (Text):</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your full name"
+                           required autocomplete="name">
                 </div>
 
+                <!-- ==============================
+                     2. EMAIL INPUT
+                     ============================== -->
                 <div class="field">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required autocomplete="email">
+                    <input type="email" id="email" name="email"
+                           placeholder="you@example.com"
+                           required autocomplete="email">
                 </div>
 
+                <!-- ==============================
+                     3. NUMBER INPUT
+                     ============================== -->
                 <div class="field">
-                    <label for="hours">Study Hours:</label>
-                    <input type="number" id="hours" name="hours" min="1" max="24">
+                    <label for="hours">Study Hours (Number):</label>
+                    <input type="number" id="hours" name="hours"
+                           min="1" max="24" value="3">
                 </div>
 
+                <!-- ==============================
+                     4. DATE INPUT
+                     ============================== -->
                 <div class="field">
                     <label for="date">Study Date:</label>
                     <input type="date" id="date" name="date">
                 </div>
+
             </fieldset>
 
+            <!-- ==============================
+                 5. RADIO BUTTONS
+                 ============================== -->
             <fieldset>
-                <legend>What is your study level?</legend>
+                <legend>What is your study level? (Radio buttons)</legend>
                 <div class="radio-group">
                     <label><input type="radio" name="level" value="beginner"> Beginner</label>
                     <label><input type="radio" name="level" value="intermediate"> Intermediate</label>
@@ -70,8 +91,11 @@
                 </div>
             </fieldset>
 
+            <!-- ==============================
+                 6. CHECKBOXES
+                 ============================== -->
             <fieldset>
-                <legend>Which subjects do you study?</legend>
+                <legend>Which subjects do you study? (Checkboxes)</legend>
                 <div class="check-group">
                     <label><input type="checkbox" name="subject" value="math"> Math</label>
                     <label><input type="checkbox" name="subject" value="physics"> Physics</label>
@@ -79,20 +103,31 @@
                 </div>
             </fieldset>
 
-            <div class="field">
-                <label for="time">Preferred Study Time:</label>
-                <select id="time" name="time">
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Afternoon</option>
-                    <option value="evening">Evening</option>
-                    <option value="night">Night</option>
-                </select>
-            </div>
+            <!-- ==============================
+                 7. SELECT DROPDOWN
+                 ============================== -->
+            <fieldset>
+                <legend>Preferences</legend>
 
-            <div class="field">
-                <label for="message">Your Goals or Notes:</label>
-                <textarea id="message" name="message" rows="6"></textarea>
-            </div>
+                <div class="field">
+                    <label for="time">Preferred Study Time (Select):</label>
+                    <select id="time" name="time">
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                        <option value="night">Night</option>
+                    </select>
+                </div>
+
+                <!-- ==============================
+                     8. LARGE TEXT BOX (TEXTAREA)
+                     ============================== -->
+                <div class="field">
+                    <label for="message">Your Goals or Notes (Textarea):</label>
+                    <textarea id="message" name="message" rows="6"
+                              placeholder="Write your notes here..."></textarea>
+                </div>
+            </fieldset>
 
             <button type="submit" class="btn">Submit</button>
 
