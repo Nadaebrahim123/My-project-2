@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reusable UI components: forms, modals, alerts and dark mode.">
+    <meta name="theme-color" content="#8f0050">
     <title>Plan Your Day - Components Library</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -12,11 +13,8 @@
 
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header role="banner">
+    <header>
         <h1>Plan Your Day</h1>
-
-        <button id="theme-toggle" class="theme-toggle" type="button"
-                aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
 
         <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
@@ -26,7 +24,7 @@
         </nav>
     </header>
 
-    <main id="main" role="main">
+    <main id="main">
 
         <h2>Components Library</h2>
         <p>Reusable UI components used across the site.</p>
@@ -39,13 +37,13 @@
                 <div class="field">
                     <label for="demo-text">Text Input:</label>
                     <input type="text" id="demo-text" name="demo-text"
-                           placeholder="Enter your name">
+                           placeholder="Enter your name" autocomplete="name">
                 </div>
 
                 <div class="field">
                     <label for="demo-email">Email Input:</label>
                     <input type="email" id="demo-email" name="demo-email"
-                           placeholder="you@example.com">
+                           placeholder="you@example.com" autocomplete="email">
                 </div>
 
                 <div class="field">
@@ -81,13 +79,13 @@
             </div>
 
             <div id="modal-demo" class="modal"
-                 role="dialog" aria-modal="true" aria-labelledby="modal-demo-title">
-                <a href="#" class="modal-backdrop" aria-hidden="true" tabindex="-1"></a>
+                 role="dialog" aria-labelledby="modal-demo-title">
+                <a href="#main" class="modal-backdrop" aria-label="Close modal" tabindex="-1"></a>
                 <div class="modal-content">
                     <h2 id="modal-demo-title">Modal Title</h2>
                     <p>This is a modal window built using CSS only. Click Close or outside to dismiss.</p>
                     <div class="modal-actions">
-                        <a href="#" class="btn" aria-label="Close modal">Close</a>
+                        <a href="#main" class="btn" aria-label="Close modal">Close</a>
                     </div>
                 </div>
             </div>
@@ -115,55 +113,15 @@
 
         <section aria-labelledby="dark-heading" class="demo-block">
             <h2 id="dark-heading">Dark Mode</h2>
-            <p>This site supports dark mode in two ways:</p>
-            <ul>
-                <li><strong>Automatic</strong> — follows your system preference via
-                    <code>@media (prefers-color-scheme: dark)</code>.</li>
-                <li><strong>Manual</strong> — use the 🌙/☀️ button in the header to override.</li>
-            </ul>
-            <p>Your choice is saved and remembered on your next visit.</p>
+            <p>This site follows your system preference automatically via
+                <code>@media (prefers-color-scheme: dark)</code>.</p>
         </section>
 
     </main>
 
-    <footer role="contentinfo">
+    <footer>
         <p>&copy; 2026 Plan Your Day</p>
     </footer>
-
-    <script>
-    (function () {
-        var html = document.documentElement;
-        var btn = document.getElementById('theme-toggle');
-        var saved = localStorage.getItem('theme');
-        if (saved === 'dark') html.classList.add('dark');
-        else if (saved === 'light') html.classList.add('light');
-
-        function updateIcon() {
-            var isDark = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            btn.textContent = isDark ? '☀️' : '🌙';
-        }
-
-        btn.addEventListener('click', function () {
-            var isDarkNow = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (isDarkNow) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateIcon();
-        });
-
-        updateIcon();
-    })();
-    </script>
 
 </body>
 </html>
