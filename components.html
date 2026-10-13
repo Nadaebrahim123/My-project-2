@@ -3,93 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>Plan Your Day - Components</title>
+    <meta name="description" content="Plan Your Day - organize your time, study better, and complete your tasks.">
+    <title>Plan Your Day - Home</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header>
+    <!-- CSS-only theme switch -->
+    <input type="checkbox" id="theme-switch" class="theme-switch"
+           aria-label="Toggle dark mode">
+
+    <header role="banner">
         <h1>Plan Your Day</h1>
 
-        <nav aria-label="Main">
-            <a href="index.html">Home</a>
+        <label for="theme-switch" class="theme-toggle"
+               role="switch" aria-hidden="true"></label>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
             <a href="about.html">About</a>
-            <a href="contact.html">Study Plan</a>
-            <a href="components.html" aria-current="page">Components</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="components.html">Components</a>
         </nav>
     </header>
 
-    <main id="main">
+    <main id="main" role="main">
 
-        <h2>Components</h2>
-        <p>Form elements, alerts, and a modal window used across the site.</p>
-
-        <section aria-labelledby="form-h">
-            <h3 id="form-h">Form elements</h3>
-
-            <form action="#" method="post">
-                <div class="field">
-                    <label for="c-name">Name</label>
-                    <input type="text" id="c-name" name="name" autocomplete="name">
-                </div>
-
-                <div class="field">
-                    <label for="c-email">Email</label>
-                    <input type="email" id="c-email" name="email" autocomplete="email"
-                           aria-invalid="true" aria-describedby="c-email-err">
-                    <p id="c-email-err" class="error-text">Enter an email like name@example.com.</p>
-                </div>
-
-                <div class="field">
-                    <label for="c-subject">Subject</label>
-                    <select id="c-subject" name="subject">
-                        <option value="math">Math</option>
-                        <option value="physics">Physics</option>
-                        <option value="computer">Computer Science</option>
-                    </select>
-                    <p class="hint">Choose the subject you study most.</p>
-                </div>
-
-                <div class="btn-row">
-                    <button type="submit">Save plan</button>
-                    <button type="reset" class="btn-secondary">Clear form</button>
-                    <button type="button" disabled>Disabled</button>
-                </div>
-            </form>
+        <section aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome to Plan Your Day</h2>
+            <p>
+                Planning your day can help you organize your time,
+                study better, and complete your tasks.
+            </p>
         </section>
 
-        <section aria-labelledby="alert-h">
-            <h3 id="alert-h">Alerts</h3>
-            <div class="alert alert-info" role="status"><strong>Tip:</strong> plan your most important task first.</div>
-            <div class="alert alert-success" role="status"><strong>Saved:</strong> your study plan was sent.</div>
-            <div class="alert alert-error" role="alert"><strong>Error:</strong> enter a valid email address.</div>
+        <div class="alert alert-info" role="status">
+            <strong>Tip:</strong>&nbsp;Start your day by writing your top 3 tasks.
+        </div>
+
+        <section aria-labelledby="why-heading">
+            <h2 id="why-heading">Why Planning Is Important</h2>
+
+            <div class="grid">
+                <article class="card">
+                    <h3>Organize Your Time</h3>
+                    <p>Make a simple schedule for your daily activities.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Study Better</h3>
+                    <p>Give each subject enough time and avoid distractions.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Complete Your Tasks</h3>
+                    <p>Write your important tasks and try to finish them on time.</p>
+                </article>
+            </div>
         </section>
 
-        <section aria-labelledby="modal-h">
-            <h3 id="modal-h">Modal window</h3>
-            <p>Built with CSS only. No JavaScript.</p>
-            <a class="btn" href="#demo-modal">Open modal</a>
-        </section>
+        <p class="center">
+            <a href="#modal" class="btn">Open Daily Reminder</a>
+        </p>
+
+        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <a href="#" class="modal-backdrop" aria-hidden="true" tabindex="-1"></a>
+            <div class="modal-content">
+                <h2 id="modal-title">Daily Reminder</h2>
+                <p>Don't forget to review your plan at the end of the day!</p>
+                <div class="modal-actions">
+                    <a href="#" class="btn" aria-label="Close modal">Close</a>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-    <div id="demo-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="demo-title">
-        <a class="modal-backdrop" href="#main" aria-label="Close dialog" tabindex="-1"></a>
-        <div class="modal-box">
-            <h2 id="demo-title">Delete this plan?</h2>
-            <p>This removes today's schedule. You can't undo this.</p>
-            <div class="btn-row">
-                <a class="btn" href="#main">Delete plan</a>
-                <a class="btn btn-secondary" href="#main">Cancel</a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2026 Plan Your Day</p>
     </footer>
 
