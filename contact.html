@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact us and share your study plan.">
+    <meta name="theme-color" content="#8f0050">
     <title>Plan Your Day - Contact Us</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -12,11 +13,8 @@
 
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header role="banner">
+    <header>
         <h1>Plan Your Day</h1>
-
-        <button id="theme-toggle" class="theme-toggle" type="button"
-                aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
 
         <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
@@ -26,7 +24,7 @@
         </nav>
     </header>
 
-    <main id="main" role="main">
+    <main id="main">
 
         <h2>Contact Us</h2>
         <p>Tell us about your study plan and daily schedule.</p>
@@ -37,53 +35,32 @@
 
         <form action="#" method="post">
 
-            <!-- ==============================
-                 1. TEXT INPUT
-                 ============================== -->
             <fieldset>
-                <legend>Personal Information</legend>
+                <legend>Your Information</legend>
 
                 <div class="field">
-                    <label for="name">Name (Text):</label>
-                    <input type="text" id="name" name="name"
-                           placeholder="Enter your full name"
-                           required autocomplete="name">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required autocomplete="name">
                 </div>
 
-                <!-- ==============================
-                     2. EMAIL INPUT
-                     ============================== -->
                 <div class="field">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email"
-                           placeholder="you@example.com"
-                           required autocomplete="email">
+                    <input type="email" id="email" name="email" required autocomplete="email">
                 </div>
 
-                <!-- ==============================
-                     3. NUMBER INPUT
-                     ============================== -->
                 <div class="field">
-                    <label for="hours">Study Hours (Number):</label>
-                    <input type="number" id="hours" name="hours"
-                           min="1" max="24" value="3">
+                    <label for="hours">Study Hours:</label>
+                    <input type="number" id="hours" name="hours" min="1" max="24" autocomplete="off">
                 </div>
 
-                <!-- ==============================
-                     4. DATE INPUT
-                     ============================== -->
                 <div class="field">
                     <label for="date">Study Date:</label>
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" autocomplete="off">
                 </div>
-
             </fieldset>
 
-            <!-- ==============================
-                 5. RADIO BUTTONS
-                 ============================== -->
             <fieldset>
-                <legend>What is your study level? (Radio buttons)</legend>
+                <legend>What is your study level?</legend>
                 <div class="radio-group">
                     <label><input type="radio" name="level" value="beginner"> Beginner</label>
                     <label><input type="radio" name="level" value="intermediate"> Intermediate</label>
@@ -91,11 +68,8 @@
                 </div>
             </fieldset>
 
-            <!-- ==============================
-                 6. CHECKBOXES
-                 ============================== -->
             <fieldset>
-                <legend>Which subjects do you study? (Checkboxes)</legend>
+                <legend>Which subjects do you study?</legend>
                 <div class="check-group">
                     <label><input type="checkbox" name="subject" value="math"> Math</label>
                     <label><input type="checkbox" name="subject" value="physics"> Physics</label>
@@ -103,31 +77,20 @@
                 </div>
             </fieldset>
 
-            <!-- ==============================
-                 7. SELECT DROPDOWN
-                 ============================== -->
-            <fieldset>
-                <legend>Preferences</legend>
+            <div class="field">
+                <label for="time">Preferred Study Time:</label>
+                <select id="time" name="time">
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                    <option value="night">Night</option>
+                </select>
+            </div>
 
-                <div class="field">
-                    <label for="time">Preferred Study Time (Select):</label>
-                    <select id="time" name="time">
-                        <option value="morning">Morning</option>
-                        <option value="afternoon">Afternoon</option>
-                        <option value="evening">Evening</option>
-                        <option value="night">Night</option>
-                    </select>
-                </div>
-
-                <!-- ==============================
-                     8. LARGE TEXT BOX (TEXTAREA)
-                     ============================== -->
-                <div class="field">
-                    <label for="message">Your Goals or Notes (Textarea):</label>
-                    <textarea id="message" name="message" rows="6"
-                              placeholder="Write your notes here..."></textarea>
-                </div>
-            </fieldset>
+            <div class="field">
+                <label for="message">Your Goals or Notes:</label>
+                <textarea id="message" name="message" rows="6"></textarea>
+            </div>
 
             <button type="submit" class="btn">Submit</button>
 
@@ -135,44 +98,9 @@
 
     </main>
 
-    <footer role="contentinfo">
+    <footer>
         <p>&copy; 2026 Plan Your Day</p>
     </footer>
-
-    <script>
-    (function () {
-        var html = document.documentElement;
-        var btn = document.getElementById('theme-toggle');
-        var saved = localStorage.getItem('theme');
-        if (saved === 'dark') html.classList.add('dark');
-        else if (saved === 'light') html.classList.add('light');
-
-        function updateIcon() {
-            var isDark = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            btn.textContent = isDark ? '☀️' : '🌙';
-        }
-
-        btn.addEventListener('click', function () {
-            var isDarkNow = html.classList.contains('dark') ||
-                (!html.classList.contains('light') &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (isDarkNow) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateIcon();
-        });
-
-        updateIcon();
-    })();
-    </script>
 
 </body>
 </html>
